@@ -1,7 +1,12 @@
+/* style.css - ปรับปรุงใหม่เพื่อความชัดเจนและมิติ */
+
 :root { 
-    --primary: #2c3e50; 
-    --accent: #3498db; 
-    --bg-light: #f4f7f6; 
+    --primary: #2c3e50; /* สีน้ำเงินเข้ม */
+    --accent: #3498db;  /* สีน้ำเงินอ่อน (หลัก) */
+    --accent-dark: #2980b9; /* สีน้ำเงินอ่อน (เข้ม) */
+    --bg-light: #f4f7f6; /* สีพื้นหลัง */
+    --card-shadow: 0 10px 25px rgba(0,0,0,0.06); /* เงาปกติ */
+    --card-hover-shadow: 0 15px 35px rgba(52, 152, 219, 0.2); /* เงาเมื่อ Hover */
 }
 
 body { 
@@ -11,58 +16,66 @@ body {
     flex-direction: column; 
     min-height: 100vh; 
     color: #333;
+    margin: 0;
 }
 
 .container { flex: 1; }
 
 .main-card { 
     background: #fff; 
-    border-radius: 15px; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-    padding: 25px; 
-    margin-bottom: 30px; 
+    border-radius: 20px; /* ขอบโค้งมนขึ้น */
+    box-shadow: var(--card-shadow); /* ใช้เงาแบบลึก */
+    padding: 30px; 
+    margin-bottom: 40px; 
+    border: 1px solid rgba(0,0,0,0.03); /* ขอบบางๆ เพิ่มความคม */
 }
 
 h1 { 
     color: var(--primary); 
     font-weight: 600; 
-    font-size: 1.4rem; 
-    border-left: 6px solid var(--accent); 
-    padding-left: 15px; 
-    margin-bottom: 25px; 
+    font-size: 1.6rem; 
+    border-left: 8px solid var(--accent); /* เส้นขอบหนาขึ้น */
+    padding-left: 20px; 
+    margin-bottom: 30px; 
 }
 
-/* Dashboard Cards (Equal Height) */
+/* Dashboard Cards (Equal Height & Deep Dimension) */
 .stat-card { 
     background: #fff; 
-    border-radius: 12px; 
-    border: 1px solid #eee; 
-    border-top: 4px solid var(--accent); 
-    transition: 0.3s; 
+    border-radius: 18px; /* ขอบโค้งมนสวยงาม */
+    border: 1px solid #f0f0f0; 
+    border-top: 6px solid var(--accent); /* เส้นขอบบนหนาและชัด */
+    transition: 0.3s ease-in-out; /* อนิเมชั่นลื่นไหล */
     height: 100%; 
-    padding: 20px; 
+    padding: 25px 20px; /* เพิ่ม Padding */
     text-align: center; 
     cursor: pointer;
     display: flex; 
     flex-direction: column; 
+    box-shadow: var(--card-shadow); /* เงาเริ่มต้น */
 }
 
+/* ลูกเล่นเมื่อเมาส์ชี้ (Hover Effect) */
 .stat-card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2); 
+    transform: translateY(-8px) scale(1.02); /* ยกสูงขึ้นและขยายเล็กน้อย */
+    box-shadow: var(--card-hover-shadow); /* เปลี่ยนเงาให้ลึกและเด่น */
+    border-top-color: var(--accent-dark); /* เปลี่ยนสีขอบบนให้เข้มขึ้น */
 }
 
+/* การ์ดที่ถูกเลือก (Active Filter) */
 .stat-card.active-filter { 
     border: 2px solid var(--accent); 
-    background-color: rgba(52, 152, 219, 0.05); 
+    background: linear-gradient(to bottom right, rgba(52, 152, 219, 0.08), rgba(255, 255, 255, 1)); /* ไล่ระดับสีพื้นหลังเล็กน้อย */
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.15); /* เงาเฉพาะสำหรับ Active */
+    transform: translateY(-3px); /* ยกสูงเล็กน้อยค้างไว้ */
 }
 
 .stat-title { 
-    font-size: 0.85rem; 
-    color: #7f8c8d; 
+    font-size: 0.95rem; /* ขนาดตัวอักษรใหญ่ขึ้น */
+    color: #555; 
     font-weight: 600; 
-    line-height: 1.4; 
-    margin-bottom: 15px; 
+    line-height: 1.5; 
+    margin-bottom: 18px; 
     flex-grow: 1; 
     display: flex; 
     align-items: center; 
@@ -70,34 +83,86 @@ h1 {
 }
 
 .stat-value { 
-    font-size: 1.8rem; 
+    font-size: 2.2rem; /* ขนาดตัวเลขใหญ่และเด่นมาก */
     color: var(--accent); 
     font-weight: bold; 
     margin-top: auto; 
-    padding-top: 10px; 
-    border-top: 1px solid #f0f0f0; 
+    padding-top: 15px; 
+    border-top: 2px solid #f4f4f4; /* เส้นคั่นชัดขึ้น */
+    background: linear-gradient(to right, var(--accent), var(--accent-dark)); /* ไล่ระดับสีตัวเลข */
+    -webkit-background-clip: text; /* บังคับสีให้แสดงเฉพาะที่ตัวเลข */
+    -webkit-text-fill-color: transparent; /* ทำให้พื้นหลังโปร่งแสงเพื่อให้เห็น gradient */
 }
 
+.stat-value small { 
+    font-size: 14px; 
+    font-weight: normal; 
+    color: #888; 
+    background: none; /* ยกเลิก gradient สำหรับ 'แห่ง' */
+    -webkit-text-fill-color: initial; 
+}
+
+/* Filter Panel */
+.filter-panel { 
+    background-color: #fcfcfc; 
+    border: 1px solid #eee; 
+    border-radius: 12px; 
+    padding: 25px; 
+    margin-bottom: 30px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* เพิ่มเงาบางๆ */
+}
+
+.filter-label { 
+    font-weight: 600; 
+    color: #555; 
+    font-size: 0.9rem; 
+    margin-bottom: 10px; 
+    display: block; 
+}
+
+/* Table Polish */
+.table-responsive { 
+    border-radius: 10px; 
+    overflow: hidden; /* บังคับให้ขอบตารางโค้งมน */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+}
+
+.table thead th { 
+    background-color: var(--primary) !important; 
+    color: white !important; 
+    border: none; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    font-size: 0.85rem; 
+    padding: 15px; 
+}
+
+.table tbody td { padding: 12px 15px; border-bottom: 1px solid #eee; }
+
 /* Expandable Rows */
-.expand-icon { cursor: pointer; color: var(--accent); font-size: 1.3rem; }
-.details-row { background-color: #fdfdfd !important; }
+.expand-icon { cursor: pointer; color: var(--accent); font-size: 1.4rem; transition: 0.2s; }
+.expand-icon:hover { color: var(--accent-dark); transform: scale(1.1); }
+.details-row { background-color: #fbfbfb !important; border-left: 4px solid var(--accent); /* เพิ่มเส้นคั่นซ้าย */ }
 
 .grade-box { 
     background: white; 
     border: 1px solid #dee2e6; 
-    border-radius: 8px; 
-    padding: 10px; 
+    border-radius: 10px; 
+    padding: 12px; 
     text-align: center; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.03); /* เพิ่มมิติให้กล่องชั้นเรียน */
+    transition: 0.2s;
 }
+.grade-box:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.05); }
 
 /* Footer */
 footer { 
-    background: #2c3e50; 
-    color: #bdc3c7; 
-    padding: 25px 0; 
-    margin-top: 40px; 
-    font-size: 0.85rem; 
+    background: var(--primary); 
+    color: #ecf0f1; 
+    padding: 30px 0; 
+    margin-top: 50px; 
+    font-size: 0.9rem; 
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05); /* เงาลอยขึ้นมา */
 }
 
 .dataTables_filter { display: none; }
