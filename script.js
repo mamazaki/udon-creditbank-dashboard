@@ -2,7 +2,7 @@ $(document).ready(function() {
     let rawData = [];
     let latestYear = "";
 
-    const table = $('#myDataTable').DataTable({
+const table = $('#myDataTable').DataTable({
         columns: [
             { className: 'dt-control text-center', orderable: false, data: null, defaultContent: '<i class="bi bi-plus-circle-fill text-primary"></i>' },
             { data: 'ชื่อสถานศึกษา' }, 
@@ -10,8 +10,13 @@ $(document).ready(function() {
             { data: 'ชื่อหลักสูตร' }, 
             { data: 'จำนวนนักเรียน', className: 'text-center fw-bold' }
         ],
-        order: [[1, 'asc']], dom: 'rtip',
-        language: { url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Thai.json" }
+        // ใช้ dom ตัวนี้ตัวเดียวค่ะ (ห้ามมี dom: 'rtip' มาต่อท้าย)
+        dom: '<"d-flex justify-content-between align-items-center mb-3"l>rtip',
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]],
+        order: [[1, 'asc']], 
+        language: { 
+            url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Thai.json" 
+        }
     });
 
     function formatDetails(d) {
