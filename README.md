@@ -63,4 +63,4 @@
 กลุ่มนโยบายและแผน สำนักงานศึกษาธิการจังหวัดอุดรธานี
 
 ---
-© 2026 Udon Thani Credit Bank Center - All Rights Reserved
+© 2026 Udon Thani Provincial Education Office - All Rights Reserved
