@@ -1,0 +1,103 @@
+:root { 
+    --primary: #2c3e50; 
+    --accent: #3498db; 
+    --bg-light: #f4f7f6; 
+}
+
+body { 
+    font-family: 'Sarabun', sans-serif; 
+    background-color: var(--bg-light); 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    color: #333;
+}
+
+.container { flex: 1; }
+
+.main-card { 
+    background: #fff; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+    padding: 25px; 
+    margin-bottom: 30px; 
+}
+
+h1 { 
+    color: var(--primary); 
+    font-weight: 600; 
+    font-size: 1.4rem; 
+    border-left: 6px solid var(--accent); 
+    padding-left: 15px; 
+    margin-bottom: 25px; 
+}
+
+/* Dashboard Cards (Equal Height) */
+.stat-card { 
+    background: #fff; 
+    border-radius: 12px; 
+    border: 1px solid #eee; 
+    border-top: 4px solid var(--accent); 
+    transition: 0.3s; 
+    height: 100%; 
+    padding: 20px; 
+    text-align: center; 
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column; 
+}
+
+.stat-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2); 
+}
+
+.stat-card.active-filter { 
+    border: 2px solid var(--accent); 
+    background-color: rgba(52, 152, 219, 0.05); 
+}
+
+.stat-title { 
+    font-size: 0.85rem; 
+    color: #7f8c8d; 
+    font-weight: 600; 
+    line-height: 1.4; 
+    margin-bottom: 15px; 
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.stat-value { 
+    font-size: 1.8rem; 
+    color: var(--accent); 
+    font-weight: bold; 
+    margin-top: auto; 
+    padding-top: 10px; 
+    border-top: 1px solid #f0f0f0; 
+}
+
+/* Expandable Rows */
+.expand-icon { cursor: pointer; color: var(--accent); font-size: 1.3rem; }
+.details-row { background-color: #fdfdfd !important; }
+
+.grade-box { 
+    background: white; 
+    border: 1px solid #dee2e6; 
+    border-radius: 8px; 
+    padding: 10px; 
+    text-align: center; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
+}
+
+/* Footer */
+footer { 
+    background: #2c3e50; 
+    color: #bdc3c7; 
+    padding: 25px 0; 
+    margin-top: 40px; 
+    font-size: 0.85rem; 
+}
+
+.dataTables_filter { display: none; }
