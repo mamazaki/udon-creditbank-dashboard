@@ -1,0 +1,16 @@
+# Environment Files
+.env
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# PHP & Temp Files
+*.log
+tmp/
+temp/
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
