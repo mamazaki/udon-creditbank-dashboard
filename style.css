@@ -63,23 +63,17 @@ h1 {
 }
 
 /* การ์ดที่ถูกเลือก (Active Filter) */
-.stat-card.active-filter { 
-    border: 2px solid var(--accent); 
-    background: linear-gradient(to bottom right, rgba(52, 152, 219, 0.08), rgba(255, 255, 255, 1)); /* ไล่ระดับสีพื้นหลังเล็กน้อย */
-    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.15); /* เงาเฉพาะสำหรับ Active */
-    transform: translateY(-3px); /* ยกสูงเล็กน้อยค้างไว้ */
+.stat-card {
+    display: flex; /* สำคัญมาก */
+    flex-direction: column; /* จัดแนวตั้ง */
+    height: 100%; /* ยืดเต็มความสูงที่ col มอบให้ */
 }
 
-.stat-title { 
-    font-size: 0.95rem; /* ขนาดตัวอักษรใหญ่ขึ้น */
-    color: #555; 
-    font-weight: 600; 
-    line-height: 1.5; 
-    margin-bottom: 18px; 
-    flex-grow: 1; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+.stat-title {
+    flex-grow: 1; /* ตัวนี้จะช่วย "ดัน" ให้ title กินพื้นที่ว่างทั้งหมด เพื่อให้ value ไปกองด้านล่างเท่ากัน */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .stat-value { 

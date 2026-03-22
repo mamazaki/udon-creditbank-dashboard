@@ -76,11 +76,23 @@ const table = $('#myDataTable').DataTable({
     }
 
     function updateDashboard(data, activePartner) {
-        const summary = data.reduce((acc, curr) => { const p = curr["สถานศึกษาคู่พัฒนา"] || "ไม่ระบุ"; acc[p] = (acc[p] || 0) + 1; return acc; }, {});
+        // นับจำนวนวิชาตามสถานศึกษาคู่พัฒนา
+        const summary = data.reduce((acc, curr) => { 
+            const p = curr["สถานศึกษาคู่พัฒนา"] || "ไม่ระบุ"; 
+            acc[p] = (acc[p] || 0) + 1; 
+            return acc; 
+        }, {});
+
         let html = '';
         Object.entries(summary).forEach(([name, count]) => {
             const isActive = (name === activePartner) ? 'active-filter' : '';
-            html += `<div class="col-6 col-md-4 col-lg-3 d-flex align-items-stretch"><div class="card stat-card border-0 shadow-sm mb-3 ${isActive}" onclick="filterByCard('${name}')"><div class="stat-title">${name}</div><div class="stat-value text-primary">${count} <small style="font-size: 12px; font-weight:normal; color:#999;">แห่ง</small></div></div></div>`;
+            html += `
+                <div class="col-6 col-md-4 col-lg-3 d-flex align-items-stretch mb-3">
+                    <div class="card stat-card w-100 ${isActive}" onclick="filterByCard('${name}')">
+                        <div class="stat-title">${name}</div>
+                        <div class="stat-value text-primary">${count} <small style="font-size: 14px; font-weight:normal; color:#888; -webkit-text-fill-color: #888;">วิชา</small></div>
+                    </div>
+                </div>`;
         });
         $('#dashboard').html(html);
     }

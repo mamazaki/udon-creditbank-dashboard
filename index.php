@@ -19,8 +19,6 @@
 <?php include 'menu.php'; ?>
 
 <div class="container">
-    <div id="dashboard" class="row mb-4 g-3 align-items-stretch text-center"></div>
-
     <div class="main-card">
         <h1>ข้อมูลการดำเนินงานธนาคารหน่วยกิตจังหวัดอุดรธานี</h1>
         
@@ -45,6 +43,8 @@
                 </div>
             </div>
         </div>
+
+        <div id="dashboard" class="row mb-4 g-3 align-items-stretch text-center"></div>
 
         <div class="table-responsive">
             <table id="myDataTable" class="table table-hover w-100">
