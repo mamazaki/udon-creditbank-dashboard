@@ -17,4 +17,5 @@ $googleSheetUrl = getEnvValue('GOOGLE_SHEET_URL');
 $appName        = getEnvValue('APP_NAME', 'UDON THANI CREDIT BANK CENTER');
 $appLogo        = getEnvValue('APP_LOGO_URL');
 $appFavicon     = getEnvValue('APP_FAVICON_URL');
+$officewebsite    = getEnvValue('OFFICE_WEBSITE');
 ?>

@@ -13,7 +13,7 @@
                     <a class="nav-link" href="index.php"><i class="bi bi-house-door me-1"></i> หน้าแรก</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.facebook.com/UdoneduProvincial/" target="_blank"><i class="bi bi-images me-1"></i> อัลบั้มภาพ</a>
+                    <a class="nav-link" href="https://www.facebook.com/udonthani.pao" target="_blank"><i class="bi bi-images me-1"></i> อัลบั้มภาพ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php"><i class="bi bi-question-circle me-1"></i> คำถามที่พบบ่อย</a>

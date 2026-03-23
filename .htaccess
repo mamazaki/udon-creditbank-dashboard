@@ -1,9 +1,0 @@
-RewriteEngine On
-
-# ตัด .php ออกจาก URL
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^([^/]+)$ $1.php [L]
-
-# บังคับให้ index.php ไปที่หน้าหลัก (Root)
-RewriteRule ^index\.php$ ./ [R=301,L]

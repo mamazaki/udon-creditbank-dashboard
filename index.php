@@ -1,4 +1,11 @@
-<?php include 'config.php'; ?>
+<?php
+// ถ้ามีการเรียกไฟล์ index.php โดยตรง ให้ Redirect ไปที่ URL หลัก
+if (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false) {
+    header("Location: ./", true, 301);
+    exit();
+}
+include 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -69,7 +76,7 @@
         <p class="mb-1">ออกแบบ และพัฒนาโดย นายสุทธิชัย ชมชื่น</p>
         <p class="mb-3 opacity-75">นักวิชาการคอมพิวเตอร์ชำนาญการ กลุ่มนโยบายและแผน สำนักงานศึกษาธิการจังหวัดอุดรธานี</p>
         <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-            <p class="mb-0 small opacity-50">&copy; 2026 Udon Thani Provincial Education Office</p>
+            <a href="<?php echo $officewebsite; ?>" target="_blank"><p class="mb-0 small opacity-50">&copy; 2026 Udon Thani Provincial Education Office</p></a>
         </div>
     </div>
 </footer>
